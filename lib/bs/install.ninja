@@ -1,0 +1,30 @@
+rescript = 1
+rule cp
+  command = cmd.exe /C copy /Y $i $out >NUL
+rule touch
+ command = cmd.exe /C type nul >>$out & copy $out+,, >NUL
+o Sidebar.cmi : cp ..\bs\src\UI\Sidebar.cmi
+o Sidebar.cmj : cp ..\bs\src\UI\Sidebar.cmj
+o Sidebar.cmt : cp ..\bs\src\UI\Sidebar.cmt
+o Sidebar.res : cp ..\..\src\UI\Sidebar.res
+o MainScreen.cmi : cp ..\bs\src\UI\MainScreen.cmi
+o MainScreen.cmj : cp ..\bs\src\UI\MainScreen.cmj
+o MainScreen.cmt : cp ..\bs\src\UI\MainScreen.cmt
+o MainScreen.res : cp ..\..\src\UI\MainScreen.res
+o SidebarElement.cmi : cp ..\bs\src\UI\SidebarElement.cmi
+o SidebarElement.cmj : cp ..\bs\src\UI\SidebarElement.cmj
+o SidebarElement.cmt : cp ..\bs\src\UI\SidebarElement.cmt
+o SidebarElement.res : cp ..\..\src\UI\SidebarElement.res
+o SidebarUtils.cmi : cp ..\bs\src\ComponentUtils\SidebarUtils.cmi
+o SidebarUtils.cmj : cp ..\bs\src\ComponentUtils\SidebarUtils.cmj
+o SidebarUtils.cmt : cp ..\bs\src\ComponentUtils\SidebarUtils.cmt
+o SidebarUtils.res : cp ..\..\src\ComponentUtils\SidebarUtils.res
+o App.cmi : cp ..\bs\src\App\App.cmi
+o App.cmj : cp ..\bs\src\App\App.cmj
+o App.cmt : cp ..\bs\src\App\App.cmt
+o App.res : cp ..\..\src\App\App.res
+o index.cmi : cp ..\bs\src\App\index.cmi
+o index.cmj : cp ..\bs\src\App\index.cmj
+o index.cmt : cp ..\bs\src\App\index.cmt
+o index.res : cp ..\..\src\App\index.res
+build install.stamp : touch Sidebar.cmi Sidebar.cmj MainScreen.cmi MainScreen.cmj SidebarElement.cmi SidebarElement.cmj SidebarUtils.cmi SidebarUtils.cmj App.cmi App.cmj index.cmi index.cmj 

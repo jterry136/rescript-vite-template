@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-bg-primary: 0 79 110;
+        --color-bg-secondary: 34 139 34;
+        --color-bg-primary-tint: 0 255 255;
+        --color-bg-secondary-tint: 152 255 152;
+        --color-bg-inverse: 0 128 128;
+    }
+}

@@ -1,0 +1,29 @@
+rescript = 1
+g_finger := C:\Users\Terry Fam PC\Documents\Coding Projects\conservation-project\node_modules\@rescript\react\lib\ocaml\install.stamp
+rule astj
+  command = "C:\Users\Terry Fam PC\Documents\Coding Projects\conservation-project\node_modules\rescript\win32\bsc.exe"  -bs-v 10.1.4 -bs-jsx 4 -bs-jsx-mode classic  -absname -bs-ast -o $out $i
+o src\UI\Sidebar.ast : astj ..\..\src\UI\Sidebar.res
+rule deps
+  command = "C:\Users\Terry Fam PC\Documents\Coding Projects\conservation-project\node_modules\rescript\win32\bsb_helper.exe" -hash f2a5ab0772184a749546d7d88827afb9 $in
+  restat = 1
+o src\UI\Sidebar.d : deps src\UI\Sidebar.ast
+rule mij
+  command = "C:\Users\Terry Fam PC\Documents\Coding Projects\conservation-project\node_modules\rescript\win32\bsc.exe" -I "src\App" -I "src\ComponentUtils" -I "src\UI" -I src -I "C:\Users\Terry Fam PC\Documents\Coding Projects\conservation-project\node_modules\@rescript\react\lib\ocaml"   -bs-package-name conservastion-project -bs-package-output es6:lib\es6\$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src\UI\Sidebar.cmj src\UI\Sidebar.cmi ..\es6\src\UI\Sidebar.bs.js : mij src\UI\Sidebar.ast
+o src\UI\MainScreen.ast : astj ..\..\src\UI\MainScreen.res
+o src\UI\MainScreen.d : deps src\UI\MainScreen.ast
+o src\UI\MainScreen.cmj src\UI\MainScreen.cmi ..\es6\src\UI\MainScreen.bs.js : mij src\UI\MainScreen.ast
+o src\UI\SidebarElement.ast : astj ..\..\src\UI\SidebarElement.res
+o src\UI\SidebarElement.d : deps src\UI\SidebarElement.ast
+o src\UI\SidebarElement.cmj src\UI\SidebarElement.cmi ..\es6\src\UI\SidebarElement.bs.js : mij src\UI\SidebarElement.ast
+o src\ComponentUtils\SidebarUtils.ast : astj ..\..\src\ComponentUtils\SidebarUtils.res
+o src\ComponentUtils\SidebarUtils.d : deps src\ComponentUtils\SidebarUtils.ast
+o src\ComponentUtils\SidebarUtils.cmj src\ComponentUtils\SidebarUtils.cmi ..\es6\src\ComponentUtils\SidebarUtils.bs.js : mij src\ComponentUtils\SidebarUtils.ast
+o src\App\App.ast : astj ..\..\src\App\App.res
+o src\App\App.d : deps src\App\App.ast
+o src\App\App.cmj src\App\App.cmi ..\es6\src\App\App.bs.js : mij src\App\App.ast
+o src\App\index.ast : astj ..\..\src\App\index.res
+o src\App\index.d : deps src\App\index.ast
+o src\App\index.cmj src\App\index.cmi ..\es6\src\App\index.bs.js : mij src\App\index.ast
